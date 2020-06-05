@@ -1,0 +1,58 @@
+*{
+  margin: 0px;
+}
+body{
+  background: black;
+}
+
+header{
+  background: linear-gradient(black,white);
+  color: white;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 60px;
+}
+
+#intro{
+  margin-top: 0px;
+}
+
+#introname{
+  /*background: yellow;*/
+  background-image: url(../埋め込み用/back.jpg);
+  
+}
+
+#sentence{
+  background: red;
+
+}
+
+#sentence1{
+  width: 500px;
+  height: 600px;
+  background: white;
+  /*background: rgba(151, 211, 229, 0.50);
+  color: white;
+  text-shadow: rgb(252, 105, 105) 2px 2px 0px, rgb(253, 99, 99) -2px 2px 0px, #000 2px -2px 0px, #000 -2px -2px 0px;*/
+}
+
+.p1{
+  display: block;
+  margin-left: 850px;
+  margin-top: -600px;
+  border-radius: 50%;
+  border:5px solid rgb(0, 255, 200) ;
+}
+
+h2 ,h3{
+  background: lightgreen;
+  width: 400px;
+  padding: 5px;
+}
+
+iframe{
+  background: white;
+}
+
