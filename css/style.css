@@ -168,3 +168,41 @@ iframe, #sentence3{
   margin-left: 100px;
   margin-right: 100px;
 }
+
+/*sidebar*/
+
+#sidebar{
+  margin-top: -60px;
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: khaki;
+  margin-left: -300px;
+  transition: 0.8s;
+}
+
+#sidebar #btn p{
+  background: aqua;
+  display: block;
+  width: 30px;
+  height: 10px;
+  margin-top: 5px;
+  
+}
+
+#btn{
+  margin-top: 10px;
+  margin-left: 350px;
+  border: 2px solid darkblue;
+  width: 30px;
+  padding: 5px;
+  transition: 1.0s;
+}
+
+.movebar{
+  margin-left: 0px !important;
+}
+
+.btnx{
+  transform: rotate(1080deg);
+}
