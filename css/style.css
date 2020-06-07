@@ -20,8 +20,11 @@ header{
 
 #introname{
   background: yellow;
+  height: 650px;
+  margin-top: -10px;
+  padding-top: 10px;
  /* background-image: url(../埋め込み用/back.jpg);*/
-  
+ background-image: url(../埋め込み用/back.jpg);
 }
 
 #sentence{
@@ -31,20 +34,39 @@ header{
 
 #sentence1{
   width: 500px;
-  height: 600px;
+  height: 500px;
   background: white;
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 30px;
   /*background: rgba(151, 211, 229, 0.50);
   color: white;
   text-shadow: rgb(252, 105, 105) 2px 2px 0px, rgb(253, 99, 99) -2px 2px 0px, #000 2px -2px 0px, #000 -2px -2px 0px;*/
 }
 
 .p1{
-  display: block;
-  margin-left: 850px;
-  margin-top: -600px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
+  
+}
+
+.icon{
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  display: block;
   border:5px solid rgb(0, 255, 200) ;
+  
+  margin-left: 750px;
+  margin-top: -500px;
+   transition: 0.5s;
+}
+
+.icon:hover{
+  border: 7px solid red;
+  box-shadow: 10px 10px 10px rgba(230, 206, 206, 0.5);
+  transform: translateY(-10px);
 }
 
 h2 ,h3,h4{
@@ -60,3 +82,26 @@ iframe{
   background: white;
 }
 
+#skills{
+  background: blue;
+  padding: 10px;
+  height: 800px;
+}
+
+#sentence2{
+  padding: 5px;
+  background: yellow;
+  height: 600px;
+}
+
+
+.tool{
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  margin-left: 10px;
+}
+
+.tool h3{
+  width: 200px;
+}
