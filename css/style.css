@@ -58,7 +58,7 @@ header{
   display: block;
   border:5px solid rgb(0, 255, 200) ;
   
-  margin-left: 750px;
+  margin-left: 700px;
   margin-top: -500px;
    transition: 0.5s;
 }
@@ -76,20 +76,36 @@ h2 ,h3,h4{
   text-align: center;
   margin-left: 10px;
   margin-top: 10px;
+  border-radius: 25px;
+}
+
+#introname h2{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 iframe{
   background: white;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 #skills{
   background: blue;
-  padding: 10px;
-  height: 800px;
+  padding: 30px;
+  height: 750px;
+
+}
+
+#skills h2{
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 #sentence2{
-  padding: 5px;
+  padding: 30px;
   background: yellow;
   height: 600px;
 }
@@ -98,10 +114,57 @@ iframe{
 .tool{
   display: inline-block;
   vertical-align: top;
-  width: 350px;
-  margin-left: 10px;
+  max-width: 250px;
+  max-height: 400px;
+  margin-bottom: 30px;
+  margin-right: 60px;
+  padding-right: 20px;
+  /*border-left: 2px solid black;
+  border-right: 2px solid black;*/
+  
+}
+
+.tool ul{
+  margin-bottom: 10px;
 }
 
 .tool h3{
-  width: 200px;
+  width: 250px;
+}
+
+#main{
+  margin-top: 0px;
+  padding-top: 10px;
+  background: linear-gradient(rgb(0, 70, 128),yellow);
+}
+
+#main h2,h3{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+iframe, #sentence3{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#sentence3{
+  max-width: 600px;
+  height: 600px;
+  background: aqua;
+  margin-left: 10px;
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+
+#sentence3 h4{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+.eng{
+  margin-left: 100px;
+  margin-right: 100px;
 }
