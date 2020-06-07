@@ -19,8 +19,8 @@ header{
 }
 
 #introname{
-  /*background: yellow;*/
-  background-image: url(../埋め込み用/back.jpg);
+  background: yellow;
+ /* background-image: url(../埋め込み用/back.jpg);*/
   
 }
 
@@ -33,6 +33,7 @@ header{
   width: 500px;
   height: 600px;
   background: white;
+  margin-top: 10px;
   /*background: rgba(151, 211, 229, 0.50);
   color: white;
   text-shadow: rgb(252, 105, 105) 2px 2px 0px, rgb(253, 99, 99) -2px 2px 0px, #000 2px -2px 0px, #000 -2px -2px 0px;*/
@@ -46,10 +47,13 @@ header{
   border:5px solid rgb(0, 255, 200) ;
 }
 
-h2 ,h3{
+h2 ,h3,h4{
   background: lightgreen;
   width: 400px;
   padding: 5px;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 iframe{
