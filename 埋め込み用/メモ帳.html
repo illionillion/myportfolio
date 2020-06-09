@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>メモ帳</title>
+    <style>
+      #viwe{
+        min-width: 250px;
+        min-height: 400px;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;     
+      }
+      #name{
+        width: 250px;
+        height: 30px;
+      }
+
+      #list{
+        margin-left: 300px;
+        margin-top: -500px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+     *{
+       padding: 0px 5px;
+     }
+
+     ul li{
+       border-bottom: 2px solid orange;
+       margin-bottom: 10px;
+       text-align:left;
+       text-size-adjust: 5px;
+       list-style: none;
+       white-space: pre;       
+     }
+
+     #t{
+       border-bottom: 2px solid blue !important;
+     }
+
+     @media screen and (max-width :350px){
+       #name{
+         width: 160px;
+       }
+       #viwe{
+         min-width: 170px;
+       }
+
+       #list{
+         margin-left: 180px;
+         word-wrap: break-word;
+       }
+     }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>メモ帳</h1>
+    </header>
+    
+    
+
+    <form id="f">
+
+    <input type="search" id="name" placeholder="題名"> 
+
+    <textarea id="viwe" placeholder="自由にお使いください。" ></textarea>
+    
+    
+
+    <input type="button" id="save" value="保存">
+
+    <input type="button" id="call" value="クリア">
+
+    <input type="button" id="delete" value="削除">
+
+  </form>
+
+   <ul id="list">
+      <li id="t"></li>
+    </ul>
+
+    <script>
+      const savebtn=document.getElementById('save');
+      const callbtn=document.getElementById('call');
+      const tarea=document.getElementById('viwe');
+      const namearea=document.getElementById('name');
+      const list =document.getElementById('list');
+      const del=document.getElementById('delete');
+
+      window.onload=function DATALOAD(){
+        //console.log("111");
+        var datacount=localStorage.length;//数える
+
+        console.log(datacount);
+        switch(datacount){
+          case 0:
+          console.log('no data...');
+          document.getElementById('t').innerHTML='記録がありません。';
+        break;
+
+          default:
+
+           document.getElementById('t').innerHTML='メモリスト(↓クリックして表示)';
+
+
+          for (let step = 0; step < datacount; step++) {
+          // 値が 0 から 4 まで計 5 回実行される
+          //console.log('一歩西に歩く');
+
+         
+
+          var calling =localStorage.key(step);
+
+          console.log(calling);
+
+          const make =document.createElement('li');
+
+          list.appendChild(make);
+
+          make.id=step;
+
+          document.getElementById(step).innerHTML='<pre>'+calling+'</pre>';
+
+          document.getElementById(step).style.height= '20px';
+
+          document.getElementById(step).onclick=function call(){
+
+            var aaa= document.getElementById(step).textContent;
+
+            namearea.value=aaa;
+
+
+            const dataname=namearea.value;
+
+                    var calldata=localStorage.getItem(dataname);
+
+                    console.log(calldata);
+
+                    tarea.value=calldata;
+                    
+                    }
+
+        
+          }
+
+        }
+
+      }
+
+      savebtn.onclick=function SAVE(){
+
+        var result = window.confirm('上書き保存しますか？');
+
+        if( result ) {
+            console.log('OKがクリックされました');
+
+          const data=tarea.value;
+                  console.log(data);
+
+                  const dataname=namearea.value;
+                  console.log(dataname);
+
+                  localStorage.setItem(dataname,data);
+
+                  var calldata=localStorage.getItem(dataname);
+
+                  console.log(calldata);
+
+                  console.log("保存完了");
+
+                  location.reload();
+
+        }
+        else {
+            console.log('キャンセルがクリックされました');
+        }
+
+        
+
+      }
+
+      callbtn.onclick=function DATACALL(){
+
+        tarea.value="";
+        namearea.value="";
+
+      }
+
+
+      del.onclick=function DELETE(){
+
+        const dnn=namearea.value;
+        var result = window.confirm('「'+dnn+'」を削除しますか？');
+
+        if( result ) {
+            console.log('OKがクリックされました');
+
+        
+
+        localStorage.removeItem(dnn);
+
+        location.reload();
+        }else{
+          console.log('キャンセル');
+        }
+
+      }
+
+    </script>
+  </body>
+</html>
