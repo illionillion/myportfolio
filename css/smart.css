@@ -49,6 +49,9 @@
     .tool h3{
       margin-bottom: 15px;
     }
+    #main{
+      padding-left: 0px;
+    }
 
     #main h3{
       width: 250px;
@@ -59,7 +62,7 @@
     }
 
     #sentence3{
-      width: 350px;
+      width: 330px;
     }
 
     .eng{
