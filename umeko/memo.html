@@ -95,8 +95,21 @@
         //console.log("111");
         var datacount=localStorage.length;//数える
 
+        var datalist=JSON.parse(localStorage.getItem('memodata'));
+
+        if(localStorage.hasOwnProperty('memodata')) {
+
+          var datacount2=Object.keys(datalist).length;
+        }else{
+          var datacount2=0;
+        }
+
+        
+
         console.log(datacount);
-        switch(datacount){
+        console.log(datalist);
+        console.log(datacount2+'!!!!!!!!!');
+        switch(datacount2){
           case 0:
           console.log('no data...');
           document.getElementById('t').innerHTML='記録がありません。';
@@ -106,16 +119,34 @@
 
            document.getElementById('t').innerHTML='メモリスト(↓クリックして表示)';
 
+          var keys1=[];
+          var values=[];
 
-          for (let step = 0; step < datacount; step++) {
+          for(let step=0; step < datacount2; step++){
+            keys1.push(Object.keys(datalist)[step]);
+            
+
+            values.push(datalist[Object.keys(datalist)[step]]);
+            
+          }
+
+          console.log(keys1);
+          console.log(values);
+
+
+          for (let step = 0; step < datacount2; step++) {
           // 値が 0 から 4 まで計 5 回実行される
           //console.log('一歩西に歩く');
 
          
 
           var calling =localStorage.key(step);
+          var calling2 =keys1[step];
+          var calling3 =values[step];
 
           console.log(calling);
+          console.log(calling2);
+          console.log(calling3);
 
           const make =document.createElement('li');
 
@@ -123,7 +154,7 @@
 
           make.id=step;
 
-          document.getElementById(step).innerHTML='<pre>'+calling+'</pre>';
+          document.getElementById(step).innerHTML='<pre>'+calling2+'</pre>';
 
           document.getElementById(step).style.height= '20px';
 
@@ -136,11 +167,12 @@
 
             const dataname=namearea.value;
 
-                    var calldata=localStorage.getItem(dataname);
+                    //var calldata=localStorage.getItem(dataname);
+                    
 
-                    console.log(calldata);
+                    //console.log(calldata);
 
-                    tarea.value=calldata;
+                    tarea.value=datalist[aaa];
                     
                     }
 
@@ -164,11 +196,45 @@
                   const dataname=namearea.value;
                   console.log(dataname);
 
-                  localStorage.setItem(dataname,data);
+                  //localStorage.setItem(dataname,data);
 
-                  var calldata=localStorage.getItem(dataname);
+                  if(localStorage.hasOwnProperty('memodata')) {//キーがあるかどうか
 
-                  console.log(calldata);
+                  console.log('このキーは存在しています');
+
+                  var datalist = JSON.parse(localStorage.getItem("memodata"));
+                  datalist[dataname] = data;
+
+                  //保存する
+                  localStorage.setItem("memodata", JSON.stringify(datalist));
+
+                  }else{
+                    
+                    var datalist={};
+
+                  datalist[dataname]=data;
+
+                  localStorage.setItem('memodata',JSON.stringify(datalist));
+
+                  var poo=localStorage.getItem('memodata');
+
+                  poo= JSON.parse(poo);
+
+                  for (var i = 0; i < poo.length; i++) {
+                      for (var key in poo[i]) {
+                        console.log(poo[i][key]);
+                      }
+                  }
+
+                  }
+
+                  
+
+                  console.log(poo);
+
+                  //var calldata=localStorage.getItem(dataname);
+
+                  //console.log(calldata);
 
                   console.log("保存完了");
 
@@ -199,9 +265,19 @@
         if( result ) {
             console.log('OKがクリックされました');
 
-        
+            if(localStorage.hasOwnProperty('memodata')) {
 
-        localStorage.removeItem(dnn);
+              console.log('このキーは存在しています');
+
+              var datalist = JSON.parse(localStorage.getItem("memodata"));
+              
+              delete datalist[dnn];
+
+              localStorage.setItem('memodata',JSON.stringify(datalist));
+
+            }
+
+        //localStorage.removeItem(dnn);
 
         location.reload();
         }else{
